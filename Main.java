@@ -72,7 +72,7 @@ public class Main
     // Java Database connectivity
     String dbURL = "jdbc:mysql://localhost:3306/notepad";
     String username = "root";
-    String password = "Sad@qls1610-";
+    String password = "*********";
     String query = "SELECT * FROM user";
 
     try (
