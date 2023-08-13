@@ -1,6 +1,5 @@
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.Statement;
+
+import java.util.Scanner;
 import java.sql.ResultSet;
 
 
@@ -36,7 +35,7 @@ class UserModel {
 
 // Note and its Components
 class Note extends UserModel{
-    public String title;
+    public String Title;
     public String Notes;
     public String Subject_Catagory;
     public Note(String First_Name, String Last_Name, String Email) {
@@ -47,8 +46,11 @@ class Note extends UserModel{
 
 
     // Section for creating Notes 
-    public void Create_Notes(){
-
+    public void Create_Notes(ResultSet resultSet){
+        String Title,Content,Catagory;
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Insert the title of the ");
+        // String queryString="insert into note(Note-Title,Content,Note_Catagory) values (" + Title + ", " + Content + ", " + Catagory + ")";
     }
     // Editing Notes 
     public void Edit_Note(){
@@ -67,28 +69,10 @@ class Note extends UserModel{
 // Main Class  
 
 public class Main
-{public static void main(String[] args) throws Exception {
-
-    // Java Database connectivity
-    String dbURL = "jdbc:mysql://localhost:3306/notepad";
-    String username = "root";
-    String password = "*******";
-    String query = "SELECT * FROM user";
-
-    try (
-            Connection conn = DriverManager.getConnection(dbURL, username, password);
-
-            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-
-            ResultSet rs = stmt.executeQuery(query);
-
-    ) {
-
-        WelcomePage welcomePage=new WelcomePage();
-    } 
-    
-    catch (Exception e) {
-        e.printStackTrace();
+{
+    public static void main(String[] args) throws Exception {
+        // Creating the instance of 
+        NotesPage create=new NotesPage();
+        create.Design();
     }
-}
 }
